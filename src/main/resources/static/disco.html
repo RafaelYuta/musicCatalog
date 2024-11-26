@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Discos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Gerenciar Discos</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="artista.html">Artistas</a></li>
+                <li><a href="generos.html">Gêneros</a></li>
+                <li><a href="faixas.html">Faixas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Lista de Discos</h2>
+            <div style="display: inline-block;">
+                <button onclick="mostrarFormularioDisco()">Adicionar Disco</button>
+                <button onclick="mostrarFormularioAtrelacao()">Atrelar Disco a Artista</button>
+                <button onclick="mostrarFormularioFaixas()">Criar e Atrelar Faixas</button>
+            </div>
+            <div id="listaDiscos"></div>
+        </section>
+
+        <section id="formularioAtrelacao" style="display: none;">
+            <h2>Atrelar Disco a Artista</h2>
+            <form id="formAtrelacao" onsubmit="atrelarDiscoArtista(event)">
+                <label for="discoIdAtrelacao">Disco:</label>
+                <select id="discoIdAtrelacao" required></select><br>
+                <label for="artistaIdAtrelacao">Artista:</label>
+                <select id="artistaIdAtrelacao" required></select><br>
+                <button type="submit">Atrelar</button>
+                <button type="button" onclick="cancelarAtrelacao()">Cancelar</button>
+            </form>
+        </section>
+
+        <section id="formularioDisco" style="display: none;">
+            <h2 id="formularioTitulo">Adicionar Disco</h2>
+            <form id="formDisco" onsubmit="salvarDisco(event)">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" required><br>
+                <label for="ano">Ano:</label>
+                <input type="number" id="ano" required><br>
+                <label for="imagem">Capa:</label>
+                <input type="file" id="imagem" accept="image/*"><br>
+                <input type="hidden" id="discoId">
+                <button type="submit">Salvar</button>
+                <button type="button" onclick="cancelarFormulario()">Cancelar</button>
+            </form>
+        </section>
+        
+
+        <section id="formularioFaixas" style="display: none;">
+            <h2>Criar e Atrelar Faixas</h2>
+            <form id="formFaixas" onsubmit="criarEAtrelarFaixas(event)">
+                <label for="discoIdFaixas">Disco:</label>
+                <select id="discoIdFaixas" required></select><br>
+                <label for="novaFaixa">Faixas:</label>
+                <div id="novaFaixasContainer">
+                    <input type="text" class="novaFaixa" placeholder="Nome da faixa">
+                </div>
+                <button type="button" onclick="adicionarNovaFaixa()">Adicionar Nova Faixa</button><br>
+                <button type="submit">Salvar e Atrelar</button>
+                <button type="button" onclick="cancelarFormularioFaixas()">Cancelar</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/discos.js"></script>
+</body>
+</html>

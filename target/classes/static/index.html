@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Discos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Gerenciar Discos</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="artista.html">Artistas</a></li>
+                <li><a href="generos.html">Gêneros</a></li>
+                <li><a href="faixas.html">Faixas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Busca Avançada</h2>
+            <form id="formBusca" onsubmit="buscar(event)">
+                <label for="tituloBusca">Título do Disco:</label>
+                <input type="text" id="tituloBusca" name="tituloBusca"><br>
+
+                <label for="artistaBusca">Artista:</label>
+                <input type="text" id="artistaBusca" name="artistaBusca"><br>
+
+                <label for="generoBusca">Gênero Musical:</label>
+                <input type="text" id="generoBusca" name="generoBusca"><br>
+
+                <button type="submit">Buscar</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Lista de Discos</h2>
+            <div id="listaDiscos"></div>
+        </section>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/discos.js"></script>
+</body>
+</html>

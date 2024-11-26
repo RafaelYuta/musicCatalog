@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Artistas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Gerenciar Artistas</h1>
+        <nav>
+            <ul>
+                <li><a href="disco.html">Discos</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="generos.html">Gêneros</a></li>
+                <li><a href="faixas.html">Faixas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Lista de Artistas</h2>
+            <button onclick="mostrarFormularioCriar()">Adicionar Artista</button>
+            <div id="listaArtistas"></div>
+        </section>
+
+        <section id="formularioArtista" style="display: none;">
+            <h2 id="formularioTitulo">Adicionar Artista</h2>
+            <form onsubmit="salvarArtista(event)">
+                <label for="nome">Nome do Artista:</label>
+                <input type="text" id="nome" required><br>
+                <input type="hidden" id="artistaId">
+                <button type="submit">Salvar</button>
+                <button type="button" onclick="cancelarFormulario()">Cancelar</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/artistas.js"></script>
+</body>
+</html>

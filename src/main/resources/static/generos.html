@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Gêneros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Gerenciar Gêneros</h1>
+        <nav>
+            <ul>
+                <li><a href="disco.html">Discos</a></li>
+                <li><a href="artista.html">Artistas</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="faixas.html">Faixas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Lista de Gêneros</h2>
+            <div style="display: inline-block;">
+                <button onclick="mostrarFormularioGenero()">Adicionar Gênero</button>
+                <button onclick="mostrarFormularioAtrelar()">Atrelar Gênero</button>
+            </div>
+            <div id="listaGeneros"></div>
+        </section>
+
+        <section id="formularioGenero" style="display: none;">
+            <h2 id="formularioTitulo">Adicionar Gênero</h2>
+            <form onsubmit="salvarGenero(event)">
+                <label for="nomeGenero">Nome do Gênero:</label>
+                <input type="text" id="nomeGenero" required>
+                <input type="hidden" id="generoId">
+                <button type="submit">Salvar</button>
+                <button type="button" onclick="cancelarFormularioGenero()">Cancelar</button>
+            </form>
+        </section>
+
+        <section id="formularioAtrelar" style="display: none;">
+            <h2>Atrelar Gênero</h2>
+            <form onsubmit="atrelarGenero(event)">
+                <label for="generoAtrelar">Gênero:</label>
+                <select id="generoAtrelar" required></select><br>
+                <label for="tipoAtrelar">Tipo:</label>
+                <select id="tipoAtrelar" onchange="carregarElementosAtrelar()" required>
+                    <option value="">Selecione</option>
+                    <option value="disco">Disco</option>
+                    <option value="faixa">Faixa</option>
+                    <option value="artista">Artista</option>
+                </select><br>
+                <label for="elementoAtrelar">Elemento:</label>
+                <select id="elementoAtrelar" required></select><br>
+                <button type="submit">Atrelar</button>
+                <button type="button" onclick="cancelarAtrelar()">Cancelar</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/genero.js"></script>
+</body>
+</html>
